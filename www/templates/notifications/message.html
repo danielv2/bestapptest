@@ -1,0 +1,56 @@
+<ion-view view-title="Chat" class="bg-muted">
+  <ion-nav-bar class="bg-muted">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-title>
+    Hunter
+  </ion-nav-title>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-icon ion-gear-a"></button>
+  </ion-nav-buttons>
+
+  <ion-content delegate-handle="messageScroll">
+    <div class="list m-n chat-bubble">
+      <div class="item item-avatar b-none me no-bg" href="#">
+        <div class="bubble text-right">
+          <i class="icon-tail"></i>
+          <span class="content">
+            Hey buddy, I'm already there
+          </span>
+        </div>
+      </div>
+
+      <div class="item item-avatar b-none friend no-bg" href="#">
+        <img ng-src="img/adam.jpg">
+        <div class="bubble">
+          <i class="icon-tail"></i>
+          <span class="content">
+            Wait a minute. I'm coming
+          </span>
+        </div>
+      </div>
+
+      <div class="item item-divider b-none no-bg text-muted text-xs text-center">Feb 26, 2016, 9:47pm</div>
+
+      <div class="item item-avatar b-none me no-bg" href="#">
+        <div class="bubble text-right">
+          <i class="icon-tail"></i>
+          <span class="content">Still waiting...</span>
+        </div>
+      </div>
+
+      <div class="item item-divider b-none no-bg text-muted text-xs text-center">Feb 26, 2016, 10:47pm</div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="bar-light item-input-inset b-t" keyboard-attach>
+    <label class="item-input-wrapper no-bg">
+      <input type="search" placeholder="Add a message" ng-model="query" ng-init="query=''">
+    </label>
+    <button class="button button-clear">
+      Send
+    </button>
+  </ion-footer-bar>
+</ion-view>

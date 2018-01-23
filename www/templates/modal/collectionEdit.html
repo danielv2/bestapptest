@@ -1,0 +1,65 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <button class="button button-icon ion-android-close" ng-click="closeEdit()"></button>
+    <h1 class="title">Edit board</h1>
+    <button class="button button-assertive" ng-click="closeEdit()">Done</button>
+  </ion-header-bar>
+
+  <ion-content>
+    <div class="list b-none m-n">
+      <label class="item b-none item-input item-stacked-label">
+        <span class="input-label text-xs">Board name</span>
+        <input type="text" class="input-big" value="Pinterest UI">
+      </label>
+
+      <label class="item b-none item-input item-stacked-label">
+        <span class="input-label text-xs">Description</span>
+        <input type="text" class="input-big" placeholder="Add">
+      </label>
+
+      <label class="item b-none item-input item-stacked-label">
+        <span class="input-label text-xs">Topic</span>
+        <input type="text" class="input-big" value="Design">
+      </label>
+
+      <label class="item b-none item-input item-stacked-label">
+        <span class="input-label text-xs">Collaborators</span>
+      </label>
+      <div class="padder">
+        <img src="" random-avatar alt="" class="thumb-md rounded">
+      </div>
+
+      <label class="item b-none item-input item-stacked-label">
+        <span class="input-label text-xs">Collaborators can...</span>
+      </label>
+
+      <div class="item item-toggle b-none">
+        <div class="text-xl font-bold">Add more people</div>
+        <label class="toggle toggle-dark">
+          <input type="checkbox" checked>
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+
+      <label class="item b-none item-input item-stacked-label">
+        <span class="input-label text-xs">Type</span>
+      </label>
+
+      <div class="item item-toggle b-none">
+        <div class="text-xl font-bold">Keep board secret</div>
+        <label class="toggle toggle-dark">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="item font-bold text-lg b-none">
+        <span class="text-muted">Delete board</span>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

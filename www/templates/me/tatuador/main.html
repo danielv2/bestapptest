@@ -1,0 +1,87 @@
+<ion-view view-title="" hide-nav-bar="true">
+    <ion-header-bar class="notification-header bar-no-border">
+      <div class="button-bar notification-tabs b-2x r-2x">
+        <a class="button button-light" resize-scroll ng-class="{active: activeTab == 0}" ng-click="activeTab = 0">Galeria</a>
+        <a class="button button-light" resize-scroll ng-class="{active: activeTab == 1}" ng-click="activeTab = 1">Perfil</a>
+      </div>
+    </ion-header-bar>
+  
+    <ion-content class="wrapper-sm has-header has-notification-header" ng-switch="activeTab">
+      <div ng-switch-when="0">
+        <ng-include src="'templates/gallery/fotos.html'"></ng-include>
+      </div>
+      <div ng-switch-when="1">
+        <ng-include src="'templates/me/tatuador/profile.html'"></ng-include>
+      </div>
+    </ion-content>
+  </ion-view>
+<!-- <ion-view view-title="" hide-nav-bar="false">
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-clear m-r-sm" ng-click="openEdit()"><i class="icon ion-edit text-sm icon-small"></i></button>
+      <button class="button button-clear"><i class="icon ion-ios-paperplane"></i></button>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-assertive" ng-click="modal.show()">
+        <span class="font-bold inline">Galeria</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    <div class="wrapper-sm bg-white">
+      <div class="row no-padder m-t-md m-b-sm">
+        <div class="col-60">
+          <div class="text-2x font-bold m-b">Hieu Pham</div>
+          <div class="m-b-xs l-h-1x">
+            <div class="font-bold text-xxs">Hanoi, Vietnam. / iquit.vn</div>
+            <div class="text-xs">Front-end developer, UI/UX lover</div>
+          </div>
+        </div>
+        <div class="col-40 text-right">
+          <img src="img/ben.png" alt="" class="thumb-xl rounded" random-avatar>
+        </div>
+      </div>
+
+      <div class="row no-padder m-t-md m-b-sm">
+        <div class="col no-padder">
+          <div class="text-xl font-bold">2.3k</div>
+          <div class="text-xxs">Pins</div>
+        </div>
+        <div class="col no-padder">
+          <div class="text-xl font-bold">109</div>
+          <div class="text-xxs">Followers</div>
+        </div>
+        <div class="col no-padder">
+          <div class="text-xl font-bold">127</div>
+          <div class="text-xxs">Following</div>
+        </div>
+        <div class="col no-padder">
+          <div class="text-xl font-bold">103</div>
+          <div class="text-xxs">Likes</div>
+        </div>
+      </div>
+
+      <div class="pins long m-b-xl">
+        <div class="columns-3">
+          <img ng-src="img/item_{{$index % 4 + 1}}.jpg" class="w-full" alt="" ng-repeat="i in [0,1,2,3,4,5,6,7]"/>
+        </div>
+      </div>
+
+      <div class="m-b-xl" ng-repeat="i in [0,1,2,3,4]" ui-sref="tab.collection">
+        <div class="text-xl font-bold">Board number {{$index + 1}}</div>
+        <div class="text-muted text-xs font-bold m-b-xs">1.9k</div>
+
+        <div class="pins m-b-sm">
+          <div class="columns-3">
+            <img ng-src="img/item_{{$index % 4 + 1}}.jpg" class="w-full" alt="" ng-repeat="i in [0,1,2,3,4,5,6,7]"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view> -->

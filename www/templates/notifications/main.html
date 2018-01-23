@@ -1,0 +1,17 @@
+<ion-view view-title="" hide-nav-bar="true">
+  <ion-header-bar class="notification-header bar-no-border">
+    <div class="button-bar notification-tabs b-2x r-2x">
+      <a class="button button-light" resize-scroll ng-class="{active: activeTab == 0}" ng-click="activeTab = 0">News</a>
+      <a class="button button-light" resize-scroll ng-class="{active: activeTab == 1}" ng-click="activeTab = 1">Inbox</a>
+    </div>
+  </ion-header-bar>
+
+  <ion-content class="wrapper-sm has-header has-notification-header" ng-switch="activeTab">
+    <div ng-switch-when="0">
+      <ng-include src="'templates/notifications/news.html'"></ng-include>
+    </div>
+    <div ng-switch-when="1">
+      <ng-include src="'templates/notifications/messages.html'"></ng-include>
+    </div>
+  </ion-content>
+</ion-view>

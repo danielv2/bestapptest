@@ -1,0 +1,21 @@
+<div class="posts list" masonry masonry-options="{ transitionDuration: '0s' }" preserve-order>
+  <div class="post item item-text-wrap no-padder b-none masonry-brick" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]" ui-sref="tab.post({id: $index})">
+    <img ng-src="img/item_{{$index%4 + 1}}.jpg" class="post-image img-full" alt="">
+
+    <div class="text-xs l-h m-b-xs">
+      <div class="text-xxs m-l-sm pull-right text-muted font-bold">
+        <i class="icon ion-pin"></i>
+        <span>30</span>
+      </div>
+      Oh my godness these <span class="hashtag">#shoes</span> are insanely gorgeous!
+    </div>
+
+    <div>
+      <img class="pull-left thumb-xxs rounded m-r-xs" src="img/mike.png" alt="">
+      <div class="text-xxs l-h">
+        <div class="text-ellipsis font-bold">Bonne Livre</div>
+        <div class="text-ellipsis">Wedding Things</div>
+      </div>
+    </div>
+  </div>
+</div>

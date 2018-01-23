@@ -1,0 +1,31 @@
+<!-- News -->
+<div class="list m-n" ng-repeat="l in [0,1,2]">
+  <div class="item item-divider light-bg b-none text-xl font-bold">
+    <span ng-show="$index == 0">Today</span>
+    <span ng-show="$index > 0">Friday, January {{$index + 1}}</span>
+  </div>
+
+  <div class="item item-avatar item-text-wrap b-none m-b-sm" ng-repeat="i in [0,1]">
+    <img src="img/ben.png" alt="" random-avatar>
+    <div class="m-t">
+      <div class="text-sm l-h-1x m-b-sm">
+        <span class="font-bold">Ben Aflech</span> followed the board <span class="font-bold">For the home</span>
+      </div>
+      <div class="thumbs">
+        <div class="object-thumb long inline" ng-style="{'background-image': 'url(\'' + 'img/item_1.jpg' + '\')'}" ng-repeat="j in [0,1,2]"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item item-avatar item-text-wrap r-2x b-none m-b-sm">
+    <img src="img/ben.png" alt="" random-avatar>
+    <div>
+      <div class="text-sm l-h-1x m-b-sm">
+        <span class="font-bold">Adam Stiler</span> followed <span class="font-bold">Ben Aflech</span>
+      </div>
+      <div class="thumbs">
+        <div class="object-thumb long inline rounded" ng-style="{'background-image': 'url(\'' + 'img/ben.png' + '\')'}"></div>
+      </div>
+    </div>
+  </div>
+</div>

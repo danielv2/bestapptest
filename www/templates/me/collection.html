@@ -1,0 +1,37 @@
+<ion-view view-title="" hide-nav-bar="false">
+
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-clear m-r-sm" ng-click="openEdit()"><i class="icon ion-edit text-sm icon-small"></i></button>
+      <button class="button button-clear"><i class="icon ion-ios-paperplane"></i></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    <div class="wrapper bg-white">
+      <div class="m-t-md m-b-sm">
+        <div class="text-2x font-bold m-b-xs">My Board</div>
+        <div class="text-muted text-xs m-b-xs"><b>12</b> Pins</div>
+      </div>
+
+      <div class="text-right m-b-sm">
+        <i class="icon ion-plus-circled text-3x stable"></i>
+        <img src="img/ben.png" alt="" random-avatar class="thumb-xs rounded">
+      </div>
+
+      <!-- Tags -->
+      <ion-scroll direction="x" class="carousel">
+        <button class="button button-stable button-small font-bold">Mens Style</button>
+        <button class="button button-stable button-small font-bold">Mens Shoes</button>
+        <button class="button button-stable button-small font-bold">Inspiration</button>
+        <button class="button button-stable button-small font-bold">Sneakers</button>
+        <button class="button button-stable button-small font-bold">Oxford</button>
+      </ion-scroll>
+    </div>
+
+    <div class="m-t-xs" ng-include="'templates/shared/posts.html'"></div>
+  </ion-content>
+</ion-view>
