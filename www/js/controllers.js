@@ -148,7 +148,16 @@ angular.module('starter.controllers', [])
       // add cancel code..
       },
       buttonClicked: function(index) {
-        return true;
+        switch(index) {
+          case 0:
+              $scope.openCamera()
+              break
+          case 1:
+              return
+              break
+          default:
+              return
+        }
       }
     });
   }
@@ -170,6 +179,7 @@ angular.module('starter.controllers', [])
       };
   
       $cordovaCamera.getPicture(options).then(function(imageData) {
+        alert(imageData)
         var image = document.getElementById('myImage');
         image.src = "data:image/jpeg;base64," + imageData;
       }, function(err) {
