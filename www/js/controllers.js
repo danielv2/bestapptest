@@ -133,7 +133,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('MeTatuadorCtrl', function($scope, $ionicActionSheet, $cordovaCamera, $stateParams) {
+.controller('MeTatuadorCtrl', function($scope, $ionicActionSheet, $ionicModal, $cordovaClipboard, $cordovaToast, $cordovaCamera, $stateParams, $cordovaSocialSharing, $cordovaImagePicker, $cordovaInstagram) {
   $scope.activeTab = $stateParams.tab || 0;
 
   $scope.openActionSheetFotos = function() {
@@ -145,49 +145,143 @@ angular.module('starter.controllers', [])
       titleText: 'Opções',
       cancelText: 'Cancelar',
       cancel: function() {
-      // add cancel code..
+        return true
       },
       buttonClicked: function(index) {
         switch(index) {
           case 0:
               $scope.openCamera()
+              return true;
               break
           case 1:
-              return
+              $scope.openFileLocal()
+              return true;
               break
           default:
-              return
+              return true
         }
       }
     });
   }
 
+  $ionicModal.fromTemplateUrl('templates/modal/social-select.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modalSocial = modal;
+  });
+  $scope.openSocialSelect = function() {
+    $scope.modalSocial.show();
+  };
+  $scope.closeSocialSelect = function() {
+    $scope.modalSocial.hide();
+  };
+
+
   $scope.openCamera = function() {
     document.addEventListener("deviceready", function () {
 
       var options = {
-        quality: 50,
+        quality: 100,
         destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.CAMERA,
         allowEdit: true,
         encodingType: Camera.EncodingType.JPEG,
-        targetWidth: 100,
-        targetHeight: 100,
+        // targetWidth: 100,
+        // targetHeight: 100,
         popoverOptions: CameraPopoverOptions,
         saveToPhotoAlbum: false,
-      correctOrientation:true
+        correctOrientation:true
       };
   
       $cordovaCamera.getPicture(options).then(function(imageData) {
-        alert(imageData)
-        var image = document.getElementById('myImage');
-        image.src = "data:image/jpeg;base64," + imageData;
+        $scope.socialImage = "data:image/jpeg;base64," + imageData;
+        $scope.openSocialSelect()    
       }, function(err) {
         // error
       });
   
     }, false);
   }
+
+  $scope.openFileLocal = function() {
+    document.addEventListener("deviceready", function () {
+      var options = {
+        maximumImagesCount: 1,
+        // width: 800,
+        // height: 800,
+        quality: 100
+       };
+     
+      $cordovaImagePicker.getPictures(options)
+        .then(function (result) {
+          $scope.socialImage = result
+          $scope.openSocialSelect()
+        }, function(err) {
+          alert(err)
+      });
+    }, false);
+  }
+
+  $scope.socialShare = function(type) {
+    switch(type) {
+      case 0:
+          $cordovaSocialSharing
+            .shareViaWhatsApp("Teste", $scope.socialImage, null)
+            .then(function(result) {
+              
+          }, function(err) {
+            
+          });
+          break
+      case 1:
+          $cordovaClipboard
+            .copy('Poodle zumbi')
+            .then(function () {
+              $cordovaToast.show('Cole na descrição da pastagem!', 'long', 'top').then(function(success) {
+                $cordovaSocialSharing
+                  .shareViaFacebook("Teste", $scope.socialImage, null)
+                  .then(function(result) {
+                  }, function(err) {
+                    
+                });
+              }, function (error) {
+                // error
+              });
+            }, function () {
+              // error
+          });
+          break
+      default:
+          break
+    }
+  }
+
+  
+    
+    // $cordovaInstagram.share(image, null).then(function() {
+    //   // Worked
+    // }, function(err) {
+    //   // Didn't work
+    // });
+
+    // $cordovaSocialSharing
+    //   .shareViaFacebook("Teste", image, null)
+    //   .then(function(result) {
+    //     // Success!
+    //   }, function(err) {
+    //     // An error occurred. Show a message to the user
+    // });
+
+
+    // $cordovaSocialSharing
+    //   .shareViaInstagram("Legenda Teste INSTA GG", image)
+    //   .then(function(result) {
+    //     // Success!
+    //   }, function(err) {
+    //     alert(err)
+    //     // An error occurred. Show a message to the user
+    // });
 })
 
 .controller('CollectionCtrl', function($scope, $ionicModal) {
