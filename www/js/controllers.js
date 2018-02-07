@@ -133,7 +133,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('MeTatuadorCtrl', function($scope, $ionicActionSheet, $ionicModal, $cordovaClipboard, $cordovaToast, $cordovaCamera, $stateParams, $cordovaSocialSharing, $cordovaImagePicker, $cordovaInstagram) {
+.controller('MeTatuadorCtrl', function($scope, $ionicActionSheet, $ionicModal,$cordovaFileTransfer, $cordovaClipboard, $cordovaCamera, $stateParams, $cordovaSocialSharing, $cordovaImagePicker, $cordovaInstagram) {
   $scope.activeTab = $stateParams.tab || 0;
 
   $scope.openActionSheetFotos = function() {
@@ -185,12 +185,12 @@ angular.module('starter.controllers', [])
         quality: 100,
         destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.CAMERA,
-        allowEdit: true,
+        // allowEdit: true,
         encodingType: Camera.EncodingType.JPEG,
         // targetWidth: 100,
         // targetHeight: 100,
         popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: false,
+        saveToPhotoAlbum: true,
         correctOrientation:true
       };
   
@@ -238,18 +238,29 @@ angular.module('starter.controllers', [])
           $cordovaClipboard
             .copy('Poodle zumbi')
             .then(function () {
-              $cordovaToast.show('Cole na descrição da pastagem!', 'long', 'top').then(function(success) {
-                $cordovaSocialSharing
-                  .shareViaFacebook("Teste", $scope.socialImage, null)
-                  .then(function(result) {
-                  }, function(err) {
-                    
-                });
-              }, function (error) {
-                // error
+              $cordovaSocialSharing
+                .shareViaFacebook("", $scope.socialImage, null)
+                .then(function(result) {
+                }, function(err) {
+                  
               });
             }, function () {
               // error
+          });
+          break
+      case 2:
+          Instagram.isInstalled(function (err, installed) {
+            if (installed) {
+              Instagram.share($scope.socialImage, function (err) {
+                if (err) {
+                    alert("not shared");
+                } else {
+                    alert("shared");
+                }
+              });
+            } else {
+                alert("Instagram is not installed");
+            }
           });
           break
       default:
