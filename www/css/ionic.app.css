@@ -10885,3 +10885,38 @@ body, .ionic-body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .item {
 /* Utils */
 .icon-small:before {
   font-size: 24px !important; }
+
+.skull {
+    background-image: url('../img/icons/skull.png');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: contain;
+  }
+
+.machine {
+  background-image: url('../img/icons/machine.png');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: contain;
+}
+
+.diamond {
+  background-image: url('../img/icons/diamond.png');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: contain;
+}
+
+.cards {
+  background-image: url('../img/icons/cards.png');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: contain;
+}
+
+.myink {
+  background-image: url('../img/icons/myink_tab.png');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: contain;
+}

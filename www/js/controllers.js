@@ -133,7 +133,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('MeTatuadorCtrl', function($scope, $ionicActionSheet, $ionicModal,$cordovaFileTransfer, $cordovaClipboard, $cordovaCamera, $stateParams, $cordovaSocialSharing, $cordovaImagePicker, $cordovaInstagram) {
+.controller('MeTatuadorCtrl', function($scope, $ionicActionSheet, $ionicModal,$cordovaFileTransfer, $cordovaClipboard, $cordovaCamera, $stateParams, $cordovaSocialSharing, $cordovaImagePicker) {
   $scope.activeTab = $stateParams.tab || 0;
 
   $scope.openActionSheetFotos = function() {
@@ -215,8 +215,11 @@ angular.module('starter.controllers', [])
      
       $cordovaImagePicker.getPictures(options)
         .then(function (result) {
-          $scope.socialImage = result
-          $scope.openSocialSelect()
+          window.plugins.Base64.encodeFile(result, function(base64){
+            alert('file base64 encoding: ');
+            $scope.socialImage = base64;
+            $scope.openSocialSelect()
+          });
         }, function(err) {
           alert(err)
       });
