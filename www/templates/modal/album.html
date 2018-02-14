@@ -1,0 +1,31 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <button class="button button-icon ion-android-close" ng-click="closeAlbum()"></button>
+    <h1 class="title">Album</h1>
+    <button class="button button-assertive" ng-click="closeAlbum()">Salvar</button>
+  </ion-header-bar>
+
+  <ion-content>
+    <div class="list b-none m-n">
+      <label class="item b-none item-input item-stacked-label">
+        <span class="input-label text-xs">Nome</span>
+        <input type="text" class="input-big" placeholder="Album de teste">
+      </label>
+
+      <label class="item b-none item-input item-stacked-label">
+        <span class="input-label text-xs">Descrição</span>
+        <input type="text" class="input-big" placeholder="Sobre o album...">
+      </label>
+
+      <div class="item item-toggle b-none">
+        <div class="text-xl font-bold">Privado</div>
+        <label class="toggle toggle-dark">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

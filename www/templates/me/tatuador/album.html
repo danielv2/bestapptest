@@ -1,0 +1,35 @@
+<ion-view view-title="" hide-nav-bar="false">
+
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="right">
+      <button class="button button-clear m-r-sm" ng-click="openEditAlbum()"><i class="icon ion-edit text-sm icon-small"></i></button>
+      <button class="button button-clear"><i class="icon ion-ios-trash"></i></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    <div class="wrapper bg-white">
+      <div class="m-t-md m-b-sm">
+        <div class="text-2x font-bold m-b-xs">Album Sample</div>
+        <div class="text-muted text-xs m-b-xs"><b>12</b> Tattos</div>
+      </div>
+      <div class="item item-icon-left b-none" ng-click="openActionSheetFotos()">
+          <i class="icon ion-plus-circled assertive"></i>
+          <div class="font-bold text-lg text-muted">Nova Foto</div>
+      </div>
+
+      <!-- Tags -->
+      <ion-scroll direction="x" class="carousel">
+        <button class="button button-stable button-small font-bold">Maori</button>
+        <button class="button button-stable button-small font-bold">Tribal</button>
+        <button class="button button-stable button-small font-bold">Anime</button>
+        <button class="button button-stable button-small font-bold">Oriental</button>
+      </ion-scroll>
+    </div>
+
+    <div class="m-t-xs" ng-include="'templates/me/tatuador/fotos-list.html'"></div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+<div class="posts list" masonry masonry-options="{ transitionDuration: '0s' }" preserve-order>
+  <div class="post item item-text-wrap no-padder b-none masonry-brick" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]" ui-sref="tab.foto({id: $index})">
+    <img ng-src="img/item_{{$index%4 + 1}}.jpg" class="post-image img-full" alt="">
+
+    <div class="text-xs l-h m-b-xs">
+      <div class="text-xxs m-l-sm pull-right text-muted font-bold">
+        <!-- <i class="icon ion-pin"></i> -->
+        <i class="icon button-icon machine"></i>
+        <i class="icon button-icon skull"></i>
+        <i class="icon button-icon diamond"></i>
+        <i class="icon button-icon heart"></i>
+        <span>30</span>
+      </div>
+    </div>
+  </div>
+</div>

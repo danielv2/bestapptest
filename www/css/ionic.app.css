@@ -4983,7 +4983,7 @@ ion-tabs.tabs-color-active-calm .tab-item {
 ion-tabs.tabs-color-active-assertive .tab-item {
   color: #444; }
   ion-tabs.tabs-color-active-assertive .tab-item.tab-item-active, ion-tabs.tabs-color-active-assertive .tab-item.active, ion-tabs.tabs-color-active-assertive .tab-item.activated {
-    color: #cb2027; }
+    color: #cc8709; }
 
 ion-tabs.tabs-color-active-balanced .tab-item {
   color: #444; }
@@ -5717,7 +5717,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
     color: #fff; }
   .item.item-assertive {
     border-color: #9f191f;
-    background-color: #cb2027;
+    background-color: #db9b00;
     color: #fff; }
   .item.item-balanced {
     border-color: #28a54c;
@@ -8671,7 +8671,7 @@ progress {
         color: #fff; }
   .button.button-assertive {
     border-color: transparent;
-    background-color: #cb2027;
+    background-color: #db9b00;
     color: #fff; }
     .button.button-assertive:hover {
       color: #fff;
@@ -9443,7 +9443,7 @@ a.button {
   border-color: #0a9dc7; }
 
 .assertive, a.assertive {
-  color: #cb2027; }
+  color: #db9b00; }
 
 .assertive-bg {
   background-color: #cb2027; }
@@ -10882,9 +10882,16 @@ body, .ionic-body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .item {
 .chat-bubble .friend .icon-tail {
   border-top: 7px solid #fff; }
 
+.backgroud-color-yellow {
+  background-color: yellow;
+}
+
 /* Utils */
 .icon-small:before {
   font-size: 24px !important; }
+
+.icon-medium:before {
+  font-size: 32px !important; }
 
 .skull {
     background-image: url('../img/icons/skull.png');
@@ -10914,9 +10921,17 @@ body, .ionic-body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .item {
   background-size: contain;
 }
 
+.heart {
+  background-image: url('../img/icons/heart.png');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: contain;
+}
+
 .myink {
   background-image: url('../img/icons/myink_tab.png');
   background-repeat: no-repeat;
   background-position:center;
   background-size: contain;
 }
+

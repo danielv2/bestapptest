@@ -1,0 +1,7 @@
+npm install --global --production windows-build-tools
+
+npm install python
+
+
+Quando der problema pra instalar node-sass
+npm install --unsafe-perm -g node-sass

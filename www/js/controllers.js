@@ -134,7 +134,48 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MeTatuadorCtrl', function($scope, $ionicActionSheet, $ionicModal,$cordovaFileTransfer, $cordovaClipboard, $cordovaCamera, $stateParams, $cordovaSocialSharing, $cordovaImagePicker) {
-  $scope.activeTab = $stateParams.tab || 0;
+
+  $ionicModal.fromTemplateUrl('templates/modal/album.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modalAlbum = modal;
+  });
+  $scope.openAddAlbum = function() {
+    $scope.modalAlbum.show();
+  };
+  $scope.closeAlbum = function() {
+    $scope.modalAlbum.hide();
+  };
+
+  $ionicModal.fromTemplateUrl('templates/modal/perfilTatuadorEdit.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modalEdit = modal;
+  });
+  $scope.openTatuadorEdit = function() {
+    $scope.modalEdit.show();
+  };
+  $scope.closeTatuadorEdit = function() {
+    $scope.modalEdit.hide();
+  };
+})
+
+.controller('AlbumTatuadorCtrl', function($scope, $ionicActionSheet, $ionicModal,$cordovaFileTransfer, $cordovaClipboard, $cordovaCamera, $stateParams, $cordovaSocialSharing, $cordovaImagePicker) {
+  
+  $ionicModal.fromTemplateUrl('templates/modal/album.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modalAlbum = modal;
+  });
+  $scope.openEditAlbum = function() {
+    $scope.modalAlbum.show();
+  };
+  $scope.closeAlbum = function() {
+    $scope.modalAlbum.hide();
+  };
 
   $scope.openActionSheetFotos = function() {
     var hideSheet = $ionicActionSheet.show({
@@ -270,32 +311,6 @@ angular.module('starter.controllers', [])
           break
     }
   }
-
-  
-    
-    // $cordovaInstagram.share(image, null).then(function() {
-    //   // Worked
-    // }, function(err) {
-    //   // Didn't work
-    // });
-
-    // $cordovaSocialSharing
-    //   .shareViaFacebook("Teste", image, null)
-    //   .then(function(result) {
-    //     // Success!
-    //   }, function(err) {
-    //     // An error occurred. Show a message to the user
-    // });
-
-
-    // $cordovaSocialSharing
-    //   .shareViaInstagram("Legenda Teste INSTA GG", image)
-    //   .then(function(result) {
-    //     // Success!
-    //   }, function(err) {
-    //     alert(err)
-    //     // An error occurred. Show a message to the user
-    // });
 })
 
 .controller('CollectionCtrl', function($scope, $ionicModal) {

@@ -72,6 +72,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
+  .state('tab.foto', {
+    url: '/foto/:id',
+    views: {
+      'tab-feed': {
+        templateUrl: 'templates/me/tatuador/foto.html',
+        controller: 'PostCtrl'
+      }
+    }
+  })
+
   .state('tab.search', {
     url: '/search',
     views: {
@@ -148,6 +158,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       'tab-me': {
         templateUrl: 'templates/me/collection.html',
         controller: 'CollectionCtrl'
+      }
+    }
+  })
+
+  .state('tab.album', {
+    url: '/album',
+    views: {
+      'tab-me': {
+        templateUrl: 'templates/me/tatuador/album.html',
+        controller: 'AlbumTatuadorCtrl'
       }
     }
   })
