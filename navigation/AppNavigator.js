@@ -3,7 +3,8 @@ import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 import AuthLoadingScreen from './auth/AuthLoadingScreen';
-import SignInScreen from './auth/SignInScreen';
+import SignInScreen from './../components/Login/Main';
+// import SignInScreen from './auth/SignInScreen';
 
 const AuthStack = createStackNavigator(
   { 
