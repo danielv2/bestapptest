@@ -47,7 +47,7 @@ export default class ButtonSubmit extends Component {
     }, 2000);
 
     setTimeout(() => {
-      Actions.secondScreen();
+      Actions.feed();
       this.setState({isLoading: false});
       this.buttonAnimated.setValue(0);
       this.growAnimated.setValue(0);
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F035E0',
+    backgroundColor: '#d99800',
     height: MARGIN,
     borderRadius: 20,
     zIndex: 100,
@@ -114,11 +114,11 @@ const styles = StyleSheet.create({
     width: MARGIN,
     marginTop: -MARGIN,
     borderWidth: 1,
-    borderColor: '#F035E0',
+    borderColor: '#d99800',
     borderRadius: 100,
     alignSelf: 'center',
     zIndex: 99,
-    backgroundColor: '#F035E0',
+    backgroundColor: '#d99800',
   },
   text: {
     color: 'white',

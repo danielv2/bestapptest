@@ -39,7 +39,7 @@ export default class Form extends Component {
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <UserInput
           source={usernameImg}
-          placeholder="Username"
+          placeholder="E-mail"
           autoCapitalize={'none'}
           returnKeyType={'done'}
           autoCorrect={false}
@@ -47,7 +47,7 @@ export default class Form extends Component {
         <UserInput
           source={passwordImg}
           secureTextEntry={this.state.showPass}
-          placeholder="Password"
+          placeholder="Senha"
           returnKeyType={'done'}
           autoCapitalize={'none'}
           autoCorrect={false}
@@ -75,10 +75,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 55,
     right: 28,
+    paddingVertical: 12
   },
   iconEye: {
     width: 25,
     height: 25,
-    tintColor: 'rgba(0,0,0,0.2)',
+    tintColor: 'rgba(0,0,0,0.2)'
   },
 });
