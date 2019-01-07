@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
+import { Ionicons } from '@expo/vector-icons';
 
 import {
 	StatusBar,
   Text,
   View,
   StyleSheet,
-  PixelRatio,
+	PixelRatio,
+	Image
 } from 'react-native';
 
 import LoginScreen from './Login/LoginScreen';
@@ -15,18 +17,16 @@ import FeedScreen from './Main/Feed/FeedScreen';
 import SearchScreen from './Main/Search/SearchScreen';
 import ProfileScreen from './Main/Profile/ProfileScreen';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+const images = {
+  feed: require("../assets/images/tab/rose_old.png"),
+	search: require("../assets/images/tab/lucky_old.png"),
+	profile: require("../assets/images/tab/skull_old.png")
+}
 
-//Create a dedicated class that will manage the tabBar icon
 class TabIcon extends Component {
   render() {
-    var color = this.props.selected ? '#00f240' : '#301c2a';
-
     return (
-      <View style={{flex:1, flexDirection:'column', alignItems:'center', alignSelf:'center', justifyContent: 'center'}}>
-        <Icon style={{color: color}} name={this.props.iconName || "circle"} size={18}/>
-        <Text style={{color: color, fontSize: 12}}>{this.props.title}</Text>
-      </View>
+			<Image source={images[this.props.iconName]} style={styles.icon}/>
     );
   }
 }
@@ -36,7 +36,7 @@ export default class Main extends Component {
 	  return (
 	    <Router>
 	      <Scene key="root">
-	        <Scene key="loginScreen"
+	        {/* <Scene key="loginScreen"
 	          component={LoginScreen}
 	        	animation='fade'
 	          hideNavBar={true}
@@ -46,55 +46,45 @@ export default class Main extends Component {
 	          component={SignupScreen}
 	          animation='fade'
 	          hideNavBar={true}
-	        />
-					<Scene key="tabbar" tabs={true} tabBarStyle={styles.tabBar} default="feed">
-						<Scene key="feed" title="feed">
-							<Scene key="feedScreen"
-								component={FeedScreen}
-								icon={({ focused }) => (
-									<Icon
-										 style={{ width: 30 }}
-										 name={focused ? 'profile-active' : 'profile'}
-										 size={30}
-										 color={focused ? '#FFC920' : '#353535'}
-									/>
-								)}
-								animation='fade'
-								hideNavBar={true}
-								initial
-							/>
-						</Scene>
-						<Scene key="search" title="search">
-							<Scene key="searchScreen"
-								component={SearchScreen}
-								icon={({ focused }) => (
-									<Icon
-										 style={{ width: 30 }}
-										 name={focused ? 'profile-active' : 'profile'}
-										 size={30}
-										 color={focused ? '#FFC920' : '#353535'}
-									/>
-								)}
-								animation='fade'
-								hideNavBar={true}
-							/>
-						</Scene>
-						<Scene key="profile" title="profile">
-							<Scene key="profileScreen"
-								component={ProfileScreen}
-								icon={({ focused }) => (
-									<Icon
-										 style={{ width: 30 }}
-										 name={focused ? 'profile-active' : 'profile'}
-										 size={30}
-										 color={focused ? '#FFC920' : '#353535'}
-									/>
-								)}
-								animation='fade'
-								hideNavBar={true}
-								initial
-							/>
-						</Scene>
+	        /> */}
+					<Scene key="tabbar" tabs={true} tabBarStyle={styles.tabBar} 
+							renderLeftButton={<View></View>}
+							// hideNavBar={true}
+							showLabel={false}
+							default="feed"
+							hideNavBar={true}>
+						<Scene key="feed"
+							component={FeedScreen}
+							iconName="feed"
+							icon={TabIcon}
+							animation='fade'
+							hideNavBar={true}
+						/>
+						<Scene key="search"
+							component={SearchScreen}
+							iconName="search"
+							icon={TabIcon}
+							animation='fade'
+							hideNavBar={true}
+						/>
+						<Scene key="profile"
+							component={ProfileScreen}
+							iconName="profile"
+							icon={TabIcon}
+							animation='fade'
+							// hideNavBar={true}
+							title = " Perfil "
+							// navigationBarStyle = {styles.header}
+							// titleStyle = {styles.text}
+							// onRight={() => alert("hello")}
+							rightButton={
+								<Ionicons name="md-settings" 
+									size={32} color="black" 
+									style={styles.righIcon}	
+									onPress={() => alert("hello")}
+								/>
+							} 
+						/>
 					</Scene>
 	      </Scene>
 	    </Router>
@@ -109,13 +99,23 @@ const styles = StyleSheet.create({
   tabBar: {
     borderTopColor: 'darkgrey',
     borderTopWidth: 1 / PixelRatio.get(),
-    backgroundColor: 'ghostwhite',
+    backgroundColor: 'white',
     opacity: 0.98
   },
-  navigationBarStyle: {
-    backgroundColor: 'red',
-  },
-  navigationBarTitleStyle: {
-    color:'white',
-  },
+	icon: {
+		width: 48,
+		height: 48
+	},
+	righIcon: {
+		paddingRight: 10
+	}
 });
+
+const rightButtonConfig = {
+  title: 'Next',
+  handler: () => alert('hello!'),
+};
+
+const titleConfig = {
+  title: 'Hello, world',
+};
